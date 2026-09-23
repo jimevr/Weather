@@ -4,373 +4,341 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Clima | Pronóstico del tiempo</title>
+    <title>ClimaMéxico | Clima de México</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- Fondo decorativo -->
-    <div class="background-shape shape-one"></div>
-    <div class="background-shape shape-two"></div>
+    <!-- ================= HEADER ================= -->
 
-    <!-- HEADER -->
-    <header class="header">
+    <header>
 
-        <div class="brand">
-            <div class="brand-icon">
-                <svg viewBox="0 0 24 24" fill="none">
-                    <path d="M12 3V5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                    <path d="M12 19V21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                    <path d="M4.93 4.93L6.34 6.34" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                    <path d="M17.66 17.66L19.07 19.07" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                    <path d="M3 12H5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                    <path d="M19 12H21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                    <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/>
-                </svg>
-            </div>
-
-            <span>CLIMA</span>
-        </div>
-
-        <button class="menu-button" id="menuButton">
-            <span>Menú</span>
-
-            <svg viewBox="0 0 24 24" fill="none">
-                <path d="M4 7H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                <path d="M4 12H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                <path d="M4 17H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-        </button>
-
-    </header>
-
-
-    <!-- MENÚ LATERAL -->
-    <aside class="side-menu" id="sideMenu">
-
-        <div class="side-menu-header">
-            <h2>Menú</h2>
-
-            <button id="closeMenu">
-                <svg viewBox="0 0 24 24" fill="none">
-                    <path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                    <path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                </svg>
-            </button>
+        <div class="logo">
+            ☁️ Clima<span>México</span>
         </div>
 
         <nav>
 
-            <button class="menu-option active" data-section="inicio">
-                <svg viewBox="0 0 24 24" fill="none">
-                    <path d="M3 11.5L12 4L21 11.5" stroke="currentColor" stroke-width="1.8"/>
-                    <path d="M5 10.5V20H19V10.5" stroke="currentColor" stroke-width="1.8"/>
-                </svg>
+            <a class="active" onclick="showPage('inicio', this)">
                 Inicio
-            </button>
+            </a>
 
-            <button class="menu-option" data-section="buscar">
-                <svg viewBox="0 0 24 24" fill="none">
-                    <circle cx="10.8" cy="10.8" r="6.8" stroke="currentColor" stroke-width="1.8"/>
-                    <path d="M16 16L21 21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                </svg>
-                Buscar ciudad
-            </button>
+            <a onclick="showPage('estados', this)">
+                Estados
+            </a>
 
-            <button class="menu-option" id="locationButton">
-                <svg viewBox="0 0 24 24" fill="none">
-                    <path d="M12 21C16 17 19 14.1 19 10.5C19 6.9 15.9 4 12 4C8.1 4 5 6.9 5 10.5C5 14.1 8 17 12 21Z" stroke="currentColor" stroke-width="1.8"/>
-                    <circle cx="12" cy="10.5" r="2.5" stroke="currentColor" stroke-width="1.8"/>
-                </svg>
-                Mi ubicación
-            </button>
-
-            <button class="menu-option" id="favoritesButton">
-                <svg viewBox="0 0 24 24" fill="none">
-                    <path d="M12 20L4.8 13.2C1.2 9.8 3.2 4 8 4C10 4 11.4 5 12 6.3C12.6 5 14 4 16 4C20.8 4 22.8 9.8 19.2 13.2L12 20Z" stroke="currentColor" stroke-width="1.8"/>
-                </svg>
-                Favoritos
-            </button>
-
-            <button class="menu-option" data-section="about">
-                <svg viewBox="0 0 24 24" fill="none">
-                    <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/>
-                    <path d="M12 10V16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                    <circle cx="12" cy="7" r="1" fill="currentColor"/>
-                </svg>
-                Acerca de
-            </button>
+            <a onclick="showPage('mapa', this)">
+                Mapa
+            </a>
 
         </nav>
 
-        <div class="menu-footer">
-            <span>Información meteorológica</span>
-            <strong>Clima en tiempo real</strong>
-        </div>
-
-    </aside>
-
-    <div class="menu-overlay" id="menuOverlay"></div>
+    </header>
 
 
-    <!-- CONTENIDO PRINCIPAL -->
-    <main class="main-content">
+    <main class="container">
 
-        <!-- BUSCADOR -->
-        <section class="search-section">
+        <!-- ================= INICIO ================= -->
 
-            <div class="search-container">
+        <section id="inicio" class="page active">
 
-                <svg viewBox="0 0 24 24" fill="none">
-                    <circle cx="10.8" cy="10.8" r="6.8" stroke="currentColor" stroke-width="1.8"/>
-                    <path d="M16 16L21 21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                </svg>
+            <div class="hero">
 
-                <input
-                    type="text"
-                    id="searchInput"
-                    placeholder="Buscar una ciudad..."
-                    autocomplete="off"
-                >
+                <div class="hero-content">
 
-                <button id="searchButton">Buscar</button>
+                    <h1>
+                        El clima de <span>México</span>
+                        en un solo lugar
+                    </h1>
+
+                    <p>
+                        Consulta la temperatura, probabilidad
+                        de lluvia y pronóstico de los 32 estados
+                        de la República Mexicana.
+                    </p>
+
+                    <div class="search">
+
+                        <input
+                            type="text"
+                            id="homeSearch"
+                            placeholder="Busca un estado..."
+                        >
+
+                        <button onclick="searchState()">
+                            Buscar
+                        </button>
+
+                    </div>
+
+                </div>
 
             </div>
 
-            <p class="search-help">
-                Consulta el clima de cualquier ciudad del mundo
-            </p>
+
+            <div class="features">
+
+                <div class="feature">
+
+                    <div class="feature-icon">
+                        🌡️
+                    </div>
+
+                    <h3>
+                        Temperatura actual
+                    </h3>
+
+                    <p>
+                        Consulta la temperatura de cada estado.
+                    </p>
+
+                </div>
+
+
+                <div class="feature">
+
+                    <div class="feature-icon">
+                        🌧️
+                    </div>
+
+                    <h3>
+                        Probabilidad de lluvia
+                    </h3>
+
+                    <p>
+                        Conoce las posibilidades de lluvia.
+                    </p>
+
+                </div>
+
+
+                <div class="feature">
+
+                    <div class="feature-icon">
+                        🇲🇽
+                    </div>
+
+                    <h3>
+                        Todo México
+                    </h3>
+
+                    <p>
+                        Información meteorológica de los 32 estados.
+                    </p>
+
+                </div>
+
+            </div>
 
         </section>
 
 
-        <!-- PANTALLA PRINCIPAL -->
-        <section id="homeSection">
+        <!-- ================= ESTADOS ================= -->
 
-            <!-- UBICACIÓN -->
-            <div class="location-heading">
+        <section id="estados" class="page">
 
-                <div>
-                    <span class="eyebrow">CLIMA ACTUAL</span>
-                    <h1 id="cityName">Ciudad de México</h1>
-                    <p id="countryName">México</p>
+            <div class="section-title">
+
+                <h2>
+                    Estados de México
+                </h2>
+
+                <p>
+                    Selecciona un estado para consultar su clima.
+                </p>
+
+            </div>
+
+
+            <input
+                type="text"
+                id="stateSearch"
+                class="state-search"
+                placeholder="🔎 Buscar estado..."
+                oninput="filterStates()"
+            >
+
+
+            <div
+                class="states-grid"
+                id="statesGrid">
+            </div>
+
+        </section>
+
+
+        <!-- ================= DETALLE ================= -->
+
+        <section id="detalle" class="page">
+
+            <button
+                class="back-button"
+                onclick="showPage('estados')">
+
+                ← Volver a estados
+
+            </button>
+
+
+            <div class="weather-detail">
+
+                <div
+                    class="detail-header"
+                    id="detailHeader">
+
+                    <div class="detail-city">
+
+                        <h1 id="detailState">
+                            Estado
+                        </h1>
+
+                        <p id="detailCapital">
+                            Capital
+                        </p>
+
+                    </div>
+
+
+                    <div class="big-temperature">
+
+                        <div
+                            class="icon"
+                            id="detailIcon">
+                            ☀️
+                        </div>
+
+                        <div
+                            class="number"
+                            id="detailTemp">
+                            --°
+                        </div>
+
+                    </div>
+
                 </div>
 
-                <button class="favorite-button" id="favoriteButton" title="Agregar a favoritos">
 
-                    <svg viewBox="0 0 24 24" fill="none">
-                        <path d="M12 20L4.8 13.2C1.2 9.8 3.2 4 8 4C10 4 11.4 5 12 6.3C12.6 5 14 4 16 4C20.8 4 22.8 9.8 19.2 13.2L12 20Z"
-                              stroke="currentColor"
-                              stroke-width="1.8"/>
-                    </svg>
+                <div class="weather-info">
+
+                    <div class="info-box">
+
+                        <span>
+                            🌧️ Probabilidad de lluvia
+                        </span>
+
+                        <strong id="detailRain">
+                            --%
+                        </strong>
+
+                    </div>
+
+
+                    <div class="info-box">
+
+                        <span>
+                            💨 Viento
+                        </span>
+
+                        <strong id="detailWind">
+                            -- km/h
+                        </strong>
+
+                    </div>
+
+
+                    <div class="info-box">
+
+                        <span>
+                            💧 Humedad
+                        </span>
+
+                        <strong id="detailHumidity">
+                            --%
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="forecast">
+
+                <h2>
+                    Pronóstico de 5 días
+                </h2>
+
+                <div
+                    class="forecast-grid"
+                    id="forecastGrid">
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= MAPA ================= -->
+
+        <section id="mapa" class="page">
+
+            <div class="section-title">
+
+                <h2>
+                    Mapa de México
+                </h2>
+
+                <p>
+                    Explora el clima de los estados de México.
+                </p>
+
+            </div>
+
+
+            <div class="map-container">
+
+                <h2>
+                    🇲🇽 México
+                </h2>
+
+                <p>
+                    Selecciona un estado desde la sección
+                    "Estados".
+                </p>
+
+                <div class="mexico-map">
+                    🗺️
+                </div>
+
+                <button
+                    class="map-button"
+                    onclick="showPage('estados')">
+
+                    Ver estados
 
                 </button>
 
             </div>
-
-
-            <!-- TARJETA PRINCIPAL -->
-            <div class="weather-card">
-
-                <div class="weather-main">
-
-                    <div class="weather-icon-large" id="weatherIcon">
-                        <svg viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.7"/>
-                            <path d="M12 2V5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
-                            <path d="M12 19V22" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
-                            <path d="M2 12H5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
-                            <path d="M19 12H22" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
-                        </svg>
-                    </div>
-
-                    <div class="temperature-area">
-                        <div class="temperature">
-                            <span id="temperature">--</span>
-                            <span class="degree">°C</span>
-                        </div>
-
-                        <p id="weatherDescription">Cargando información...</p>
-                        <span id="feelsLike">Sensación térmica: --°</span>
-                    </div>
-
-                </div>
-
-
-                <!-- INFORMACIÓN DEL CLIMA -->
-                <div class="weather-details">
-
-                    <div class="detail">
-
-                        <div class="detail-icon">
-                            <svg viewBox="0 0 24 24" fill="none">
-                                <path d="M7 16.5C5.3 16.5 4 15.2 4 13.5C4 11.8 5.3 10.5 7 10.5C7.3 10.5 7.6 10.5 7.9 10.6C8.5 7.9 10.9 6 13.8 6C17.2 6 20 8.7 20 12.1C20 12.3 20 12.5 20 12.7C20 12.7 20 12.8 20 12.8" stroke="currentColor" stroke-width="1.7"/>
-                                <path d="M4 18H15" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
-                                <path d="M8 21H18" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
-                            </svg>
-                        </div>
-
-                        <div>
-                            <span>Precipitación</span>
-                            <strong id="precipitation">-- %</strong>
-                        </div>
-
-                    </div>
-
-
-                    <div class="detail">
-
-                        <div class="detail-icon">
-                            <svg viewBox="0 0 24 24" fill="none">
-                                <path d="M4 9H15C16.7 9 18 7.7 18 6C18 4.3 16.7 3 15 3C13.7 3 12.6 3.8 12.2 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
-                                <path d="M4 14H19C20.1 14 21 13.1 21 12C21 10.9 20.1 10 19 10" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
-                                <path d="M4 19H13C14.1 19 15 18.1 15 17" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
-                            </svg>
-                        </div>
-
-                        <div>
-                            <span>Viento</span>
-                            <strong id="wind">-- km/h</strong>
-                        </div>
-
-                    </div>
-
-
-                    <div class="detail">
-
-                        <div class="detail-icon">
-                            <svg viewBox="0 0 24 24" fill="none">
-                                <path d="M12 21C15.3 17.5 18 14.4 18 10.5C18 7.2 15.3 4 12 4C8.7 4 6 7.2 6 10.5C6 14.4 8.7 17.5 12 21Z" stroke="currentColor" stroke-width="1.7"/>
-                                <path d="M9.5 10.5C9.5 9.1 10.6 8 12 8C13.4 8 14.5 9.1 14.5 10.5C14.5 11.9 13.4 13 12 13C10.6 13 9.5 11.9 9.5 10.5Z" stroke="currentColor" stroke-width="1.7"/>
-                            </svg>
-                        </div>
-
-                        <div>
-                            <span>Humedad</span>
-                            <strong id="humidity">-- %</strong>
-                        </div>
-
-                    </div>
-
-
-                    <div class="detail">
-
-                        <div class="detail-icon">
-                            <svg viewBox="0 0 24 24" fill="none">
-                                <path d="M12 3V21" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
-                                <path d="M7 8L12 3L17 8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M7 16L12 21L17 16" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
-
-                        <div>
-                            <span>Dirección</span>
-                            <strong id="windDirection">--</strong>
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- PRONÓSTICO -->
-            <section class="forecast-section">
-
-                <div class="section-title">
-                    <div>
-                        <span class="eyebrow">PRONÓSTICO</span>
-                        <h2>Próximos días</h2>
-                    </div>
-
-                    <span id="updatedTime">Actualizado ahora</span>
-                </div>
-
-                <div class="forecast-grid" id="forecastGrid">
-                    <!-- JavaScript genera las tarjetas -->
-                </div>
-
-            </section>
-
-        </section>
-
-
-        <!-- ACERCA DE -->
-        <section class="about-section hidden" id="aboutSection">
-
-            <div class="about-card">
-
-                <span class="eyebrow">ACERCA DE</span>
-
-                <h2>Una forma sencilla de consultar el clima</h2>
-
-                <p>
-                    Esta aplicación permite consultar las condiciones
-                    meteorológicas actuales y el pronóstico de los próximos
-                    días para diferentes ciudades.
-                </p>
-
-                <div class="about-features">
-
-                    <div>
-                        <strong>Datos en tiempo real</strong>
-                        <span>Información meteorológica actualizada mediante una API.</span>
-                    </div>
-
-                    <div>
-                        <strong>Búsqueda de ciudades</strong>
-                        <span>Consulta diferentes ubicaciones desde el buscador.</span>
-                    </div>
-
-                    <div>
-                        <strong>Diseño adaptable</strong>
-                        <span>La interfaz se adapta a computadoras, tablets y celulares.</span>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- FAVORITOS -->
-        <section class="favorites-section hidden" id="favoritesSection">
-
-            <div class="section-title">
-                <div>
-                    <span class="eyebrow">MIS CIUDADES</span>
-                    <h2>Favoritos</h2>
-                </div>
-            </div>
-
-            <div class="favorites-grid" id="favoritesGrid"></div>
 
         </section>
 
     </main>
 
 
-    <!-- LOADING -->
-    <div class="loading-screen hidden" id="loadingScreen">
+    <!-- ================= FOOTER ================= -->
 
-        <div class="loader"></div>
+    <footer>
 
-        <p>Consultando información meteorológica...</p>
+        ClimaMéxico © 2026 |
+        Proyecto académico
 
-    </div>
+    </footer>
 
 
-    <!-- NOTIFICACIÓN -->
-    <div class="toast" id="toast"></div>
-
+    <!-- JavaScript -->
 
     <script src="script.js"></script>
 
