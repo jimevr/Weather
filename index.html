@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Clima | Weather App</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- MENÚ LATERAL -->
+    <aside id="sideMenu" class="side-menu">
+
+        <div class="menu-header">
+            <h2>☀️ Clima</h2>
+
+            <button id="closeMenu" class="close-btn">
+                ×
+            </button>
+        </div>
+
+        <nav>
+            <a href="#" class="active">🌤️ Inicio</a>
+            <a href="#">📍 Mis ubicaciones</a>
+            <a href="#">⭐ Favoritos</a>
+            <a href="#">⚙️ Configuración</a>
+        </nav>
+
+    </aside>
+
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main>
+
+        <!-- HEADER -->
+        <header class="header">
+
+            <button id="menuBtn" class="menu-btn">
+                ☰
+            </button>
+
+            <div class="logo">
+                <span>Weather</span>
+            </div>
+
+            <!-- BUSCADOR -->
+            <div class="search-container">
+
+                <input
+                    type="text"
+                    id="cityInput"
+                    placeholder="Buscar ciudad..."
+                >
+
+                <button id="searchBtn">
+                    🔍
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <!-- CONTENIDO -->
+        <section class="weather-container">
+
+            <!-- UBICACIÓN -->
+            <div class="location">
+
+                <p class="country" id="country">
+                    México
+                </p>
+
+                <h1 id="city">
+                    Ciudad de México
+                </h1>
+
+                <p id="date">
+                    Cargando...
+                </p>
+
+            </div>
+
+
+            <!-- CLIMA PRINCIPAL -->
+            <section class="main-weather">
+
+                <div class="weather-icon" id="weatherIcon">
+                    ☀️
+                </div>
+
+                <div>
+
+                    <div class="temperature">
+
+                        <span id="temperature">
+                            --°
+                        </span>
+
+                        <span class="unit">
+                            C
+                        </span>
+
+                    </div>
+
+                    <p id="weatherDescription">
+                        Cargando clima...
+                    </p>
+
+                    <p class="feels-like">
+                        Sensación térmica:
+                        <strong id="feelsLike">
+                            --°
+                        </strong>
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- INFORMACIÓN DEL CLIMA -->
+            <section class="weather-details">
+
+                <div class="weather-card">
+
+                    <div class="card-icon">
+                        🌧️
+                    </div>
+
+                    <div>
+                        <span>Precipitación</span>
+
+                        <strong id="precipitation">
+                            -- mm
+                        </strong>
+                    </div>
+
+                </div>
+
+
+                <div class="weather-card">
+
+                    <div class="card-icon">
+                        💧
+                    </div>
+
+                    <div>
+                        <span>Humedad</span>
+
+                        <strong id="humidity">
+                            -- %
+                        </strong>
+                    </div>
+
+                </div>
+
+
+                <div class="weather-card">
+
+                    <div class="card-icon">
+                        💨
+                    </div>
+
+                    <div>
+                        <span>Viento</span>
+
+                        <strong id="wind">
+                            -- km/h
+                        </strong>
+                    </div>
+
+                </div>
+
+
+                <div class="weather-card">
+
+                    <div class="card-icon">
+                        ☁️
+                    </div>
+
+                    <div>
+                        <span>Nubosidad</span>
+
+                        <strong id="clouds">
+                            -- %
+                        </strong>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- MENSAJE DE ERROR -->
+            <div id="errorMessage" class="error-message">
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
